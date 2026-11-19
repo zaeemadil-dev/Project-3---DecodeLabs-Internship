@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Contact Book | DecodeLabs Project 3</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">C</span><span>Contact Book<small>DecodeLabs · Project 03</small></span></a>
+    <span class="student-tag">DecodeLab Internships</span>
+  </header>
+
+  <main class="container">
+    <section class="intro">
+      <div>
+        <p class="eyebrow">DATABASE INTEGRATION</p>
+        <h1>Keep your people<br><span>in one simple place.</span></h1>
+        <p class="intro-copy">A little contact book I built to practise saving, viewing, updating and deleting data with a real database.</p>
+      </div>
+      <div class="intro-note"><span class="note-dot"></span> Your contacts stay saved after you close the browser.</div>
+    </section>
+
+    <section class="stats" aria-label="Contact summary">
+      <article class="stat-card"><span class="stat-label">TOTAL CONTACTS</span><strong id="totalContacts">0</strong><span class="stat-foot">Saved in my database</span></article>
+      <article class="stat-card"><span class="stat-label">UNIVERSITY</span><strong id="universityCount">0</strong><span class="stat-foot">Classmates and teachers</span></article>
+      <article class="stat-card"><span class="stat-label">PERSONAL</span><strong id="personalCount">0</strong><span class="stat-foot">Friends and family</span></article>
+    </section>
+
+    <section class="workspace">
+      <div class="form-card">
+        <div class="section-heading"><div><p class="eyebrow">CONTACT DETAILS</p><h2 id="formHeading">Add a contact</h2></div><span class="form-number">01</span></div>
+        <form id="contactForm">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" placeholder="e.g. Ali Ahmed" maxlength="70" required>
+          <label for="email">Email address</label>
+          <input id="email" name="email" type="email" placeholder="ali@example.com" maxlength="120" required>
+          <label for="phone">Phone number <span class="optional">(optional)</span></label>
+          <input id="phone" name="phone" type="tel" placeholder="e.g. 0300 1234567" maxlength="25">
+          <label for="category">Category</label>
+          <select id="category" name="category"><option>Personal</option><option>University</option><option>Work</option><option>Other</option></select>
+          <div class="form-actions"><button class="primary-btn" id="saveButton" type="submit">Save contact <span>→</span></button><button class="cancel-btn hidden" id="cancelEdit" type="button">Cancel</button></div>
+        </form>
+        <p class="form-hint">Tip: Each email address can only be saved once.</p>
+      </div>
+
+      <div class="list-card">
+        <div class="list-top"><div><p class="eyebrow">MY LITTLE DIRECTORY</p><h2>Saved contacts <span id="listCount">(0)</span></h2></div><div class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Find someone..."></div></div>
+        <div id="message" class="message hidden" role="status"></div>
+        <div class="table-wrap">
+          <table><thead><tr><th>NAME</th><th>CATEGORY</th><th>PHONE</th><th>ACTIONS</th></tr></thead><tbody id="contactRows"><tr><td colspan="4" class="loading">Loading contacts...</td></tr></tbody></table>
+        </div>
+        <div id="emptyState" class="empty-state hidden"><div class="empty-icon">＋</div><h3>No contacts yet</h3><p>Add your first contact using the form. It will appear here.</p></div>
+        <div class="list-bottom"><span>Simple, useful, and saved locally.</span><span>SQLite database <b>●</b></span></div>
+      </div>
+    </section>
+
+    <footer><span>Made while learning full-stack development.</span><span>HTML · CSS · JavaScript · Node.js · SQLite</span></footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
